@@ -1,0 +1,29 @@
+/* Estilização para os botões */
+button.btn {
+    background-color: #6c757d; /* Cor neutra (cinza) */
+    color: white; /* Cor do texto */
+    border: none; /* Remove bordas padrão */
+    border-radius: 4px; /* Bordas levemente arredondadas */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    font-weight: bold; /* Texto em negrito */
+    cursor: pointer; /* Indica que é clicável */
+    transition: background-color 0.3s ease; /* Transição suave para hover */
+}
+
+
+/* Estilo para o efeito hover */
+button.btn:hover {
+    background-color: #5a6268; /* Cor mais escura no hover */
+}
+
+
+/* Estilização da foto do usuário */
+.foto-container img {
+    width: 150px; /* Largura padrão */
+    height: 150px; /* Altura padrão (igual à largura para manter quadrado) */
+    object-fit: cover; /* Ajusta a imagem sem distorcer */
+    border-radius: 50%; /* Torna as bordas circulares */
+    border: 2px solid #ddd; /* Adiciona uma borda leve */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}

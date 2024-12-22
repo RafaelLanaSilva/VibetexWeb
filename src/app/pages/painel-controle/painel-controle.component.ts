@@ -16,6 +16,7 @@ import { fromLonLat } from 'ol/proj';
 import Style from 'ol/style/Style';
 import Icon from 'ol/style/Icon';
 
+
 @Component({
   selector: 'app-painel-controle',
   imports: [
@@ -28,13 +29,17 @@ import Icon from 'ol/style/Icon';
 })
 export class PainelControleComponent {
 
+
   usuario: any[] = [];
 
+
   constructor(private httpClient: HttpClient) {}
+
 
   ngOnInit(): void {
     this.initMap();
   }
+
 
   initMap(): void {
     const map = new Map({
@@ -50,10 +55,12 @@ export class PainelControleComponent {
       }),
     });
 
+
     // Criando o marcador com um ícone personalizado
   const marker = new Feature({
     geometry: new Point(fromLonLat([-43.1793, -22.9068])) // Coordenadas de São Paulo
   });
+
 
     // Adicionando um marcador no mapa
     const markerStyle = new Style({
@@ -62,29 +69,35 @@ export class PainelControleComponent {
         scale: 0.5, // Reduzir o tamanho do ícone (ajuste conforme necessário)
       })
     });
-  
+ 
     // Atribuindo o estilo ao marcador
     marker.setStyle(markerStyle);
+
 
     const vectorSource = new VectorSource({
       features: [marker]
     });
 
+
     const vectorLayer = new VectorLayer({
       source: vectorSource
     });
 
+
     map.addLayer(vectorLayer);
   }
+
 
   form = new FormGroup({
     dataMin: new FormControl('', [Validators.required]),
     dataMax: new FormControl('', [Validators.required]),
   });
 
+
   get f() {
     return this.form.controls;
   }
+
 
   onSubmit() {
     this.httpClient.get(environment.apiVibetex)
@@ -98,3 +111,6 @@ export class PainelControleComponent {
     });
   }
 }
+
+
+

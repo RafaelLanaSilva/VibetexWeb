@@ -5,6 +5,7 @@ import { AbstractControl, FormControl, FormGroup, FormsModule, ReactiveFormsModu
 import { RouterLink } from '@angular/router';
 import { environment } from '../../../environments/environment';
 
+
 @Component({
   selector: 'app-criar-usuario',
   imports: [
@@ -25,13 +26,14 @@ export class CriarUsuarioComponent {
     private httpClient: HttpClient
   ) {}
 
+
   form = new FormGroup({
     nome : new FormControl('', [Validators.required, Validators.minLength(8)]),
     email : new FormControl('', [Validators.required, Validators.email]),
     senha : new FormControl('', [Validators.required]),
-    tipoPerfil : new FormControl('', [Validators.required])
+    tipoPerfil : new FormControl(2, [Validators.required])
   },
-  
+ 
   );
 
   get f() {
@@ -39,18 +41,23 @@ export class CriarUsuarioComponent {
   }
 
   onSubmit() {
-    this.httpClient.post(environment.apiVibetex + "/criar", this.form.value)
+
+    this.mensagemSucesso = '';
+    this.mensagemErro = '';
+
+    this.httpClient.post(environment.apiVibetex + "/usuarios/criar", this.form.value)
       .subscribe({
         next: (data: any) => {
           this.mensagemSucesso = `Parabéns ${data.nome}, sua conta foi criada com sucesso.`;
           this.form.reset();
         },
         error: (e) => {
-          this.mensagemErro = e.error.message;
+          console.log(e.error);
+          this.mensagemErro = "Erro ao cadastrar. Tente novamente.";
         }
       })
   }
 
-  
 
 }
+

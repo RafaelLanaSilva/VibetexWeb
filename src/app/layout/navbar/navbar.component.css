@@ -1,0 +1,76 @@
+/* Estilo básico para o navbar */
+.navbar {
+    background-color: #343a40; /* Fundo escuro */
+    padding: 10px 20px; /* Espaçamento interno */
+    border-bottom: 3px solid #6c757d; /* Linha decorativa */
+}
+
+
+/* Estilo para a marca do sistema */
+.navbar-brand {
+    color: #333333; /* Cor escura para o texto */
+    font-size: 1.5rem; /* Tamanho maior */
+    font-weight: bold; /* Negrito */
+    text-transform: uppercase; /* Texto em maiúsculas */
+}
+
+
+.navbar-brand:hover {
+    color: #555555; /* Cor um pouco mais clara no hover */
+}
+
+
+
+
+.navbar-brand:hover {
+    color: #000000; /* Leve clareamento no hover */
+}
+
+
+/* Estilo para os itens do menu */
+.nav-link {
+    color: #030303; /* Texto branco */
+    font-size: 1rem; /* Tamanho padrão */
+    margin: 0 10px; /* Espaçamento horizontal */
+    padding: 8px 12px; /* Espaçamento interno */
+    text-decoration: none; /* Remove sublinhado */
+    transition: all 0.3s ease; /* Animação suave para hover */
+    font-weight: bold;
+}
+
+
+/* Estilo ao passar o mouse */
+.nav-link:hover {
+    color: #dcdcdc; /* Texto levemente mais claro */
+    background-color: #495057; /* Fundo cinza escuro */
+    border-radius: 4px; /* Bordas arredondadas */
+}
+
+
+/* Estilo do link ativo */
+.nav-link.active {
+    color: #f8f9fa; /* Branco claro */
+    background-color: #6c757d; /* Fundo cinza neutro */
+    border-radius: 4px; /* Bordas arredondadas */
+    font-weight: bold; /* Negrito */
+}
+
+
+/* Botão de alternância do menu (mobile) */
+.navbar-toggler {
+    border: none; /* Remove a borda padrão */
+    background-color: #6c757d; /* Fundo cinza */
+    color: white; /* Ícone branco */
+    padding: 8px 12px; /* Espaçamento interno */
+    border-radius: 4px; /* Bordas arredondadas */
+}
+
+
+.navbar-toggler:hover {
+    background-color: #495057; /* Fundo mais escuro no hover */
+}
+
+
+
+
+

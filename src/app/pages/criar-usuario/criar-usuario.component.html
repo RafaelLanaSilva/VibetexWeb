@@ -6,7 +6,10 @@
                     <h5 class="card-title text-center mb-3 mt-2">Criação de Usuário</h5>
 
 
+
+
                     <hr />
+
 
                     <!-- mensagem de sucesso -->
                     <div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
@@ -15,16 +18,19 @@
                             aria-label="Close"></button>
                     </div>
 
+
                     <!-- mensagem de erro -->
                     <div *ngIf="mensagemErro" class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>Erro!</strong> {{ mensagemErro }}
                         <button (click)="mensagemErro = ''" type="button" class="btn-close" aria-label="Close"></button>
                     </div>
 
+
                     <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
+
                         <div class="mb-3">
-                            <label for="nome" class="form-label">Nome do usuário:</label>
+                            <label>Nome do usuário:</label>
                             <input type="text" class="form-control" id="nome" placeholder="Digite seu nome"
                                 formControlName="nome" />
                             <div class="text-danger" *ngIf="f['nome'].touched && f['nome'].invalid">
@@ -32,8 +38,9 @@
                             </div>
                         </div>
 
+
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email de acesso:</label>
+                            <label>Email de acesso:</label>
                             <input type="email" class="form-control" id="email" placeholder="Digite seu email"
                                 formControlName="email" />
                             <div class="text-danger" *ngIf="f['email'].touched && f['email'].invalid">
@@ -41,22 +48,30 @@
                             </div>
                         </div>
 
+
                         <div class="mb-3">
-                            <label for="senha" class="form-label">Senha de acesso:</label>
+                            <label>Senha de acesso:</label>
                             <input type="password" class="form-control" id="senha" placeholder="Digite sua senha"
                                 formControlName="senha" />
                             <div class="text-danger" *ngIf="f['senha'].touched && f['senha'].invalid">
                                 Por favor, informe a senha com pelo menos 8 caracteres.
                             </div>
-                        </div>                   
-
-                        <div class="mb-3">
-                            <label for="perfil" class="form-label">Perfil do usuário:</label>
-                            <select class="form-select" id="tipoPerfil" formControlName="tipoPerfil">
-                                <option value="1">Colaborador</option>
-                            </select>                           
                         </div>
-                        
+
+
+                        <!-- Dropdown de Fornecedor -->
+                        <div class="mb-3">
+                            <label for="tipoPerfil">Tipo de Perfil</label>
+                            <select id="tipoPerfil" formControlName="tipoPerfil" class="form-control">
+                              <option value="2">Colaborador</option>
+                            </select>
+                            <div *ngIf="f.tipoPerfil.touched && f.tipoPerfil.invalid" class="text-danger">
+                              O tipo de perfil é obrigatório.
+                            </div>
+                          </div>
+
+
+
 
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
@@ -64,10 +79,12 @@
                             </button>
                         </div>
 
+
                         <div class="text-center mt-3">
                             Já possui conta?
                             <a routerLink="/pages/login-usuario">Acesse aqui!</a>
                         </div>
+
 
                     </form>
                 </div>
@@ -75,3 +92,4 @@
         </div>
     </div>
 </div>
+
