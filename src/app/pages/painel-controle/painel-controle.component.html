@@ -1,0 +1,60 @@
+<div class="container mt-4">
+    <h4>Painel de Administração</h4>
+    <p>Preencha as datas para consultar as contas no período.</p>
+    <hr />
+    
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col">
+                <input type="date" class="form-control" formControlName="dateMin" />
+                <div 
+                    class="text-danger" 
+                    *ngIf="f['dataMin'].touched && f['dataMin'].invalid"
+                    > Por faovr, informe a data de início do período
+                </div>
+            </div>
+            <div class="col">
+                <input type="date" class="form-control" formControlName="dateMax" />
+                <div 
+                    class="text-danger" 
+                    *ngIf="f['dataMax'].touched && f['dataMax'].invalid"
+                    > Por faovr, informe a data de fim do período
+                </div>
+            </div>
+            <div class="col">
+                <button class="btn btn-success" [disabled]="form.invalid">
+                  Pesquisar Contas
+                </button>
+              </div>
+        </div>
+    </form>
+  
+    <div class="table-responsive mt-2">
+      <table class="table table-sm table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Colaborador</th>
+            <th scope="col">Início</th>
+            <th scope="col">Pausa</th>
+            <th scope="col">Retorno</th>
+            <th scope="col">Fim</th>
+            <th scope="col">Localização</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of usuario">
+            <td>{{ user.nome }}</td>
+            <td>{{ user.horaInicio }}</td>
+            <td>{{ user.horaPausaAlmoco }}</td>
+            <td>{{ user.horaRetornoAlmoco }}</td>
+            <td>{{ user.horaFimExpediente }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+<!-- Mapa abaixo da tabela -->
+<div id="map"></div>
+
+  

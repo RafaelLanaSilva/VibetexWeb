@@ -1,0 +1,71 @@
+<div class="d-flex vh-100">
+    <div class="row justify-content-center align-self-center w-100">
+      <div class="col-md-4">
+        <div class="card shadow-lg">
+          <div class="card-body">
+            <div class="text-center">
+            </div>
+  
+  
+            <h5 class="card-title text-center mb-3 mt-2">
+              Acesso ao Sistema
+            </h5>
+  
+            <hr />
+  
+            <!-- mensagem de erro -->
+            <div *ngIf="mensagemErro" class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>Erro!</strong> {{ mensagemErro }}
+              <button (click)="mensagemErro = ''" type="button" class="btn-close" aria-label="Close"></button>
+            </div>
+  
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  
+  
+              <div class="mb-3">
+                <label for="email" class="form-label">Email de acesso:</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Digite seu email"
+                  formControlName="email"
+                />
+                <div class="text-danger" *ngIf="f['email'].touched && f['email'].invalid">
+                  Por favor, informe um endereço de email válido.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="senha" class="form-label">Senha de acesso:</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="senha"
+                  placeholder="Digite sua senha"
+                  formControlName="senha"
+                />
+                <div class="text-danger" *ngIf="f['senha'].touched && f['senha'].invalid">
+                  Por favor, informe uma senha com pelo menos 8 caracteres.
+                </div>
+              </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+                  Entrar
+                </button>
+              </div>
+              <div class="text-center mt-3">
+                Nao possui conta?
+                <a routerLink="/pages/criar-usuario">Cadastre-se aqui!</a>
+              </div>
+  
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  

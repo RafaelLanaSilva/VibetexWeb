@@ -1,0 +1,8 @@
+#map {
+    height: 300px; /* Diminuir a altura do mapa */
+    width: 100%;   /* Deixar a largura 100% do contêiner pai */
+    margin-top: 20px; /* Espaço acima do mapa */
+    border: 2px solid #808080; /* Borda cinza com 2px de largura */
+    border-radius: 8px; /* Bordas arredondadas (opcional) */
+  }
+  
